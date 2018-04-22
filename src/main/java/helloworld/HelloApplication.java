@@ -1,5 +1,8 @@
 package helloworld;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +19,12 @@ public class HelloApplication {
 	@RequestMapping("/hello")
 	public String hello() {
 		return "Hello World!";
+	}
+	
+	@RequestMapping("/ip")
+	public String getIp() throws UnknownHostException {
+		String ip = InetAddress.getLocalHost().getHostAddress();
+		return "您访问的IP是："+ip;
 	}
 
 }

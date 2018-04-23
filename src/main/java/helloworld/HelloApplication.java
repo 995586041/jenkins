@@ -18,11 +18,13 @@ public class HelloApplication {
 	
 	@RequestMapping("/hello")
 	public String hello() {
+		System.out.println("log:------------>hello");
 		return "Hello World!";
 	}
 	
 	@RequestMapping("/ip")
 	public String getIp() throws UnknownHostException {
+		System.out.println("log:------------>ip");
 		String ip = InetAddress.getLocalHost().getHostAddress();
 		return "您访问的IP是："+ip;
 	}
